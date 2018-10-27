@@ -13,7 +13,7 @@ Ilustrate an analysis on a real dataset:
 import matplotlib.pyplot as plt
 
 import pandas
-from pandas.tools import plotting
+from pandas import plotting
 
 from statsmodels.formula.api import ols
 
@@ -27,10 +27,12 @@ data = pandas.read_csv('iris.csv')
 categories = pandas.Categorical(data['name'])
 
 # The parameter 'c' is passed to plt.scatter and will control the color
-plotting.scatter_matrix(data, c=categories.labels, marker='o')
+plotting.scatter_matrix(data, c=categories.codes, marker='o')
 
 fig = plt.gcf()
+
 fig.suptitle("blue: setosa, green: versicolor, red: virginica", size=13)
+
 
 ##############################################################################
 # Statistical analysis
